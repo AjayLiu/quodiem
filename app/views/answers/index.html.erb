@@ -1,0 +1,10 @@
+<h1>Answers</h1>
+
+<div id="answers">
+  <% @answers.each do |answer| %>
+    <div>
+      <%= link_to answer.content, answer_path(answer.id) %>
+    </div>
+  <% end %>
+  <%= link_to "New answer", new_answer_path %>
+</div>
