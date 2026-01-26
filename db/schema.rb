@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_22_164412) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_23_000004) do
   create_table "answers", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -20,6 +20,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_22_164412) do
   create_table "questions", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
+    t.date "scheduled_for"
+    t.boolean "today", default: false, null: false
     t.datetime "updated_at", null: false
+    t.boolean "used", default: false, null: false
+    t.index ["scheduled_for"], name: "index_questions_on_scheduled_for"
   end
 end

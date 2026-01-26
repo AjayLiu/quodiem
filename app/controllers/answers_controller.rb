@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
 
   def index
     @answers = Answer.all
+    @today_question = Question.today_cached
   end
 
   def show
